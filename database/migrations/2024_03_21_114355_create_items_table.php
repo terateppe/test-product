@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned()->index();
-            $table->string('name', 100)->index();
-            $table->string('type', 100)->nullable();
-            $table->string('detail', 500)->nullable();
+            $table->biginteger('user_id');
+            $table->string('name',100);
+            $table->tinyinteger('type');
+            $table->string('detail',500);
             $table->timestamps();
         });
     }

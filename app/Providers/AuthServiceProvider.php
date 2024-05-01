@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
+use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -21,6 +21,13 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $isAdmin = config('constants.user_roles.admin'); // 管理者
+
+        $this->registerPolicies();
+
+        Gate::define('admin', function ($user) use ($isAdmin) {
+            return $user !== null && $user->is_admin === $isAdmin; // 管理者の場合
+        });
     }
 }
+
