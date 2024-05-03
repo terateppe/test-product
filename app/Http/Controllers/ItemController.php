@@ -131,26 +131,44 @@ class ItemController extends Controller
     //購入履歴画面の表示
     public function history(Request $request)
 {   
-    //昇順・降順の切り替え機能
-$sort = $request->get('sort');
-if ($sort === '1') {
-    $historys = History::orderBy('created_at', 'asc')->paginate(10);
-} else {
-    $historys = History::orderBy('created_at', 'desc')->paginate(10);
-}
+    //itemsテーブルとの結合処理
+    $histories = History::leftjoin('items', 'items.id', '=', 'histories.item_id')
+           ->get();
+           
 
-return view('item.historys', compact('historys'));
+    //昇順・降順の切り替え機能
+    //if ($request->has('sort')) {
+        //$sort = $request->sort;
+        //if ($sort === '1') {
+            //$histories = $histories->orderBy('histories.created_at', 'asc');
+        //} else {
+           // $histories = $histories->orderBy('histories.created_at', 'desc');
+       // }
+   // }
+    
+    //$histories = $histories->paginate(10);
+
+return view('item.historys', compact('histories'));
 }
 
 //購入商品詳細画面の表示
-public function details(Request $request)
-    {   
+public function details(Request $request, $id)
+    {       
+            
             //historysテーブルから指定のIDのレコードを1件取得
-            $history = History::find($request->id);
+            $history = History::find($id);
 
+            //itemsテーブルとの結合処理
+            $histories = History::join('items', 'items.id', '=', 'histories.item_id')
+            ->select('histories.*', 'items.*')
+            ->where('histories.id', $id) // 指定のIDに絞る
+            ->first(); // 1件だけ取得する
+    
             //想定以上の数値が入った場合の処理
             if (!$history) {abort(404);} 
 
-            return view('item.details',compact('history'));
+            return view('item.details',compact('histories'));
     }
+
 }
+

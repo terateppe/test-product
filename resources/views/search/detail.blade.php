@@ -120,10 +120,10 @@
 </table>
 @cannot('admin')
 <form action="{{ route('buys', ['id' => $item->id]) }}" method="POST">
+    @csrf
 <div class="d-flex justify-content-center">
 <button type="submit" class="btn btn-success btn-md mt-3" style="width: 50%" onclick='return confirm("この商品を購入しますか？");'>購入</button>
-                    
-                </div>
+</div>
 </form>
 @endcannot
 </body>

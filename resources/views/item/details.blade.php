@@ -15,70 +15,61 @@
 <body>
 @include('parts.nav')
 
-<form action="{{ route('update') }}" method="POST">
-    @csrf
-    <div class="col-md-6 offset-md-3">
-        <div class="form-group text-center">
- 
-        @if($errors->has('id'))
-         @foreach($errors->get('id') as $message)
-                    <h6 class="text-danger">{{ $message }}</h6>
-        @endforeach
-        @endif 
-
-            <h2>購入商品詳細</h2>
-            
-
-            <div class="row" style="margin-top: 50px;">
-                <div class="col-md">
-                <div><label>商品名</label></div>
-                    <div class="form-group">
-                        @if($errors->has('name'))
-                        @foreach($errors->get('name') as $message)
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <form action="{{ route('update') }}" method="POST">
+            @csrf
+            <div class="form-group text-center">
+                @if($errors->has('id'))
+                    @foreach($errors->get('id') as $message)
                         <h6 class="text-danger">{{ $message }}</h6>
-                        @endforeach
-                        @endif
-                        <td>{{$history->name}}</td>
+                    @endforeach
+                @endif 
+
+                購入商品詳細画面
+
+                <div class="row" style="margin-top: 50px;">
+                    <div class="col-md">
+                        <div><label>商品名</label></div>
+                        <div class="form-group">
+                            <td>{{ $histories->name }}</td>
+                        </div>
+                        <div><label>種別</label></div>
+                        <div class="form-group">
+                            <td>
+                                @if($histories->type == 1)
+                                    食料品
+                                @elseif($histories->type == 2)
+                                    衛生用品
+                                @elseif($histories->type == 3)
+                                    衣類
+                                @elseif($histories->type == 4)
+                                    医療品
+                                @elseif($histories->type == 5)
+                                    情報機器
+                                @elseif($histories->type == 6)
+                                    その他
+                                @endif
+                            </td>
+                        </div>
+                        <div><label>詳細</label></div>
+                        <div class="form-group">
+                            <td>{{ $histories->detail }}</td>
+                        </div>
+                        <input type="hidden" name="id" value="{{ $histories->id }}">
                     </div>
-                    <div><label>種別</label></div>
-                            <td>{{$history->type}}</td>
-                            @if($history->type == 1)
-                                食料品
-                            @elseif($history->type == 2)
-                                衛生用品
-                            @elseif($history->type == 3)
-                                衣類
-                            @elseif($history->type == 4)
-                                医療品
-                            @elseif($history->type == 5)
-                                情報機器
-                            @elseif($history->type == 6)
-                                その他
-                            @endif
-                    <div><label>詳細</label></div>
-                    <div class="form-group">
-                        @if($errors->has('detail'))
-                        @foreach($errors->get('detail') as $message)
-                        <h6 class="text-danger">{{ $message }}</h6>
-                        @endforeach
-                        @endif
-                        <td>{{old('detail',$history->detail)}}</td>
+                    <div class="col-md">
+                        <div><label>購入日時</label></div>
+                        <div class="form-group">
+                            <td>{{ $histories->created_at }}</td>
+                        </div>
                     </div>
-                    <input type="hidden" name="id" value="{{$history->id}}"
                 </div>
-                <tr>
-        <td>購入日時</td>
-        <td>{{$history->created_at}}</td>
-    </tr>
+                <hr>
             </div>
-            
-
-            <hr>
-            
-
-        </div>
+        </form>
     </div>
-</form>
+</div>
     
 <button type="button" class="btn btn-primary" onclick="location.href='{{ route('historys') }}'">一覧に戻る</button>
     <!-- Optional JavaScript -->

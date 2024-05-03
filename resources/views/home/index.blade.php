@@ -13,7 +13,7 @@
 @include('parts.nav')
 
 <div class="title">
-    <h1>防災グッズホームサイト</h1>
+    <h1>防災グッズ販売所</h1>
 </div>
 
 <div class="container text-center">

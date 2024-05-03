@@ -22,10 +22,20 @@
                     <a class="nav-link" href="/item/management">商品管理</a>
                 </li>
                 @endcan
+                @if(auth()->check())
+                <!-- ログイン状態の場合 -->
                 <li class="nav-item">
-                    <form  action="/logout" method="post">@csrf<input class="btn btn-sm btn-primary" type="submit" value="logout"></form>
-                    
+                    <form action="/logout" method="post">
+                        @csrf
+                        <input class="btn btn-sm btn-primary" type="submit" value="ログアウト">
+                    </form>
                 </li>
+                @else
+                <!-- ログアウト状態の場合 -->
+                <li class="nav-item">
+                <a href="{{ route('login') }}" class="btn btn-sm btn-primary">ログイン</a>
+                </li>
+                @endif
             </ul>
         </div>
     </nav>    

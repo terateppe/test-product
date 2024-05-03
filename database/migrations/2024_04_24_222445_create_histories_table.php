@@ -14,9 +14,7 @@ return new class extends Migration
         Schema::create('histories', function (Blueprint $table) {
             $table->id();
             $table->biginteger('user_id');
-            $table->string('name',100);
-            $table->tinyinteger('type');
-            $table->string('detail',500);
+            $table->biginteger('item_id');
             $table->timestamps();
         });
     }

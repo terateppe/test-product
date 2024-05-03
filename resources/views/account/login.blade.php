@@ -56,7 +56,7 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="form-group text-center">
-                        <h1>商品管理システム</h1>
+                        <h1>防災グッズ販売所</h1>
                     </div>
                     <div class="form-group">
                         <label for="email">メールアドレス <small class="bg-danger text-white">必須</small></label>

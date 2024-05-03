@@ -23,7 +23,7 @@
         <button type="submit" name="sort" value="1">昇順で表示</button>
         <button type="submit" name="sort" value="2">降順で表示</button>
     </form>
-    {{ $historys->links() }}
+    
     <table class="table table-striped ">
     <tr>
       <th>ID</th>
@@ -33,7 +33,7 @@
     </tr>
   </thead>
   <tbody>
-              @foreach ($historys as $history)
+              @foreach ($histories as $history)
               <tr>
                 <td>{{ $history->id }}</td>
                 <td>{{ $history->name }}</td>

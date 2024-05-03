@@ -31,6 +31,7 @@ class AccountController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|max:255|regex:/^[A-Za-z0-9\-]+$/',
+            'role' => 'required'
         ]);
 
         // アカウントの登録
@@ -38,7 +39,14 @@ class AccountController extends Controller
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
         $user->password = Hash::make($validatedData['password']);
-        $user->is_admin = config('constants.user_roles.general'); // 利用者
+        //$user->is_admin = config('constants.user_roles.general'); // 利用者
+        
+        // 選択された権限によってis_adminの値を設定
+        if ($validatedData['role'] === 'admin') {
+            $user->is_admin = config('constants.user_roles.admin');
+        } else {
+            $user->is_admin = config('constants.user_roles.general');
+        }
         $user->save();
 
         // 成功した場合のフラッシュメッセージ
