@@ -81,7 +81,7 @@
         <td>{{$item->id}}</td>
     </tr>
     <tr>
-        <td>名前</td>
+        <td>商品名</td>
         <td>{{$item->name}}</td>
     </tr>
     <tr>
