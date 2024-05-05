@@ -11,7 +11,7 @@
 
 <body>
     @php
-        $excludedErrors = [$errors->first('name'), $errors->first('email'), $errors->first('password')];
+        $excludedErrors = [$errors->first('name'), $errors->first('email'), $errors->first('password'), $errors->first('role')];
         $otherErrors = array_diff($errors->all(), $excludedErrors);
     @endphp
 
@@ -65,6 +65,9 @@
                             <option value="admin">出品者</option>
                         </select>
                         </div>
+                        @error('role')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary btn-md mt-3" style="width: 50%;" onclick='return confirm("アカウントを登録しますか？");'>アカウント登録</button>
                     </div>
