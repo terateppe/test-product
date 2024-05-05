@@ -22,8 +22,8 @@
  <form action="{{ route('managements')}}">
         <button type="submit" name="sort" value="1">昇順で表示</button>
         <button type="submit" name="sort" value="2">降順で表示</button>
-    </form>
-    
+ </form>
+ {{ $histories->links() }}
     <table class="table table-striped ">
     <tr>
       <th>ID</th>
@@ -55,7 +55,7 @@
                 <td>{{ $history->created_at }}</td>
                 <td><a href="{{ route('details', ['id'=>$history->id]) }}" class="btn btn-info">詳細</a></td>
                 <td>
-                <form action="/item/destroy/{{$history->id}}" method="POST">
+                <form action="{{ route('destroy', ['id'=>$history->id]) }}" method="POST">
                 @csrf
                 <button type="submit"  class="btn btn-danger" onclick='return confirm("登録されたこの商品を返品しますか？");'>返品</button>
                 </form>

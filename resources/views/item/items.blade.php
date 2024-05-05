@@ -58,12 +58,11 @@
                     <h6 class="text-danger">{{ $message }}</h6>
                     @endforeach
                     @endif 
-                        <textarea class="form-control" id="detail" name="detail" rows="9" placeholder="商品の特徴や値段を記入してください">{{ old('detail') }}</textarea>
+                    <textarea class="form-control" id="detail" name="detail" rows="9" placeholder="商品の特徴や値段を記入してください">{{ old('detail') }}</textarea>
                     </div>
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-success btn-md mt-3" style="width: 50%" onclick='return confirm("以下の内容で登録します");'>登録</button>
-                    
-                </div>
+                    </div>
             </div>
             
 

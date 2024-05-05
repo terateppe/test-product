@@ -33,7 +33,7 @@
                         <h1>防災グッズ販売所</h1>
                     </div>
                     <div class="form-group">
-                        <label for="name">名前(出品者の方は社名を記入してください) <small class="bg-danger text-white">必須</small></label>
+                        <label for="name">名前(出品者の場合は社名を記入してください) <small class="bg-danger text-white">必須</small></label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="名前を入力してください" maxlength="255" value="{{ old('name', '') }}">
                         @error('name')
                             <small class="text-danger">{{ $message }}</small>
@@ -57,11 +57,11 @@
                         <label for="password_confirmation">パスワード（確認） <small class="bg-danger text-white">必須</small></label>
                         <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="もう一度パスワードを入力してください" maxlength="255">
                     </div>
-                    <div><label for="role">利用者か出品者かどちらかお選びください <small class="bg-danger text-white">必須</small></label></div>
+                    <div><label for="role">顧客または出品者か利用方法をお選びください <small class="bg-danger text-white">必須</small></label></div>
                         <div class="form-group">
                         <select name="role" id="role" required>
                             <option selected value="">以下から選択してください</option>
-                            <option value="general">利用者</option>
+                            <option value="general">顧客</option>
                             <option value="admin">出品者</option>
                         </select>
                         </div>

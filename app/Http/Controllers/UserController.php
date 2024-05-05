@@ -27,31 +27,4 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
-    /**
-     * ユーザー編集処理
-     */
-    public function update(Request $request)
-    {
-        $ValidatedData = $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'is_admin' => 'required',
-        ]);
-
-        $user = User::find($request->id);
-        $user->update($request->all());
-
-        return redirect('/user')->with('status', '保存しました');
-    }
-
-    /**
-     * ユーザー削除処理
-     */
-    public function delete(Request $request)
-    {
-
-        $user = User::find($request->id);
-        $user->delete();
-        return redirect('/user')->with('status', '削除しました');
-    }
 }

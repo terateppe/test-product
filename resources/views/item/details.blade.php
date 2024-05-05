@@ -26,17 +26,20 @@
                     @endforeach
                 @endif 
 
-                購入商品詳細画面
+                <h2>購入商品詳細画面</h2>
 
                 <div class="row" style="margin-top: 50px;">
                     <div class="col-md">
                         <div><label>商品名</label></div>
                         <div class="form-group">
-                            <td>{{ $histories->name }}</td>
+                            
+{{ $histories->name }}
+
                         </div>
                         <div><label>種別</label></div>
                         <div class="form-group">
-                            <td>
+                            
+
                                 @if($histories->type == 1)
                                     食料品
                                 @elseif($histories->type == 2)
@@ -50,18 +53,23 @@
                                 @elseif($histories->type == 6)
                                     その他
                                 @endif
-                            </td>
+                            
+
                         </div>
                         <div><label>詳細</label></div>
                         <div class="form-group">
-                            <td>{{ $histories->detail }}</td>
+                            
+{{ $histories->detail }}
+
                         </div>
                         <input type="hidden" name="id" value="{{ $histories->id }}">
                     </div>
                     <div class="col-md">
                         <div><label>購入日時</label></div>
                         <div class="form-group">
-                            <td>{{ $histories->created_at }}</td>
+                            
+{{ $histories->created_at }}
+
                         </div>
                     </div>
                 </div>

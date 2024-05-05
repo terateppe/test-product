@@ -14,12 +14,6 @@
 <body>
     @include('parts.nav')
 
-    @if(session('status'))
-    <div class="alert alert-success">
-        {{session('status')}}
-    </div>
-    @endif
-
     <div class="form-group text-center">
         <h2>利用者一覧</h2>
 
@@ -32,7 +26,6 @@
                     <th>メールアドレス</th>
                     <th>権限</th>
                     <th>登録日</th>
-                    <th>編集</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -49,7 +42,6 @@
                         @endif
                     </td>
                     <td>{{$user->created_at}}</td>
-                    <td><a href="/user/edit/{{$user->id}}" class="btn btn-primary">編集</a></td>
                 </tr>
                 @endforeach
             </tbody>

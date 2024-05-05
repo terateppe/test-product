@@ -57,9 +57,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('/item/update', [App\Http\Controllers\ItemController::class, 'update'])->name('update'); //登録商品の更新処理
 
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);//ユーザー一覧を表示
-    Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit']);//ユーザー編集画面表示
-    Route::post('/user/update', [App\Http\Controllers\UserController::class, 'update']);//ユーザー更新処理
-    Route::post('/user/{id}', [App\Http\Controllers\UserController::class, 'delete']); //ユーザー削除処理
 });
 
 Route::get('/', function () {
