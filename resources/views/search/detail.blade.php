@@ -75,7 +75,15 @@
             </nav>
         </td>
     </tr>
-
+    
+    <tr>
+        <td>出品者名</td>
+        <td>@foreach($users as $user)
+    
+            {{ $user->name }}
+      
+            @endforeach</td>
+    </tr>
     <tr>
         <td>ID</td>
         <td>{{$item->id}}</td>

@@ -5,16 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\User;
 
 class SearchController extends Controller
 {
 
     //商品詳細画面を表示
     public function detail($id)
-    {
+    {   
+        $users = User::all();
+
         $item = Item::find($id);
         if($item==false){abort(404);}
-        return view('search.detail', compact('item'));
+        return view('search.detail', ['item' => $item, 'users' => $users]);
     }
     public function index(Request $request) 
     {

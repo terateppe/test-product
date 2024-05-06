@@ -18,31 +18,31 @@
 
 <div class="container text-center">
     <div class="row">
-    <div class=col-4>
+    <div class="col-4">
             <a class="home-img" href="/home/1">
                 <img src="/img/food.jpeg" alt="" class="food">
                 <p>食料品</p>
             </a>
         </div>
-        <div class=col-4>
+        <div class="col-4">
             <a class="home-img" href="/home/2">
                 <img src="/img/hygiene.jpeg" alt="" class="hygiene">
                 <p>衛生用品</p>
             </a>
         </div>
-        <div class=col-4>
+        <div class="col-4">
             <a class="home-img" href="/home/3">
                 <img src="/img/clothing.png" alt="" class="clothing">
                 <p>衣類</p>
             </a>
         </div>
-        <div class=col-4>
+        <div class="col-4">
             <a class="home-img" href="/home/4">
                 <img src="/img/medical.jpeg" alt="" class="medical">
                 <p>医療用品</p>
             </a>
         </div>
-        <div class=col-4>
+        <div class="col-4">
             <a class="home-img" href="/home/5">
                 <img src="/img/radio.png" alt="" class="radio">
                 <p>情報機器</p>
