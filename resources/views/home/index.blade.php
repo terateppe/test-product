@@ -85,6 +85,5 @@
     <br>
     <br>
 </div>
-<div class="fixed-bottom" style="background-color: #ccc; text-align: center;">防災グッズホームサイト</div>
 </body>
 </html>
