@@ -9,7 +9,7 @@ use App\Models\Item;
 class SearchController extends Controller
 {
 
-
+    //商品詳細画面を表示
     public function detail($id)
     {
         $item = Item::find($id);

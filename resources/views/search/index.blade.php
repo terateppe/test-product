@@ -43,6 +43,11 @@
 </head>
 <body>
     @include('parts.nav')
+    @if (session('message'))
+            <div class="flash_message bg-success text-center py-3 my-0" style="background-color: rgba(0, 200, 0, 0.5); color: white; padding: 10px; font-size: 20px;">
+                {{ session('message') }}
+            </div>
+        @endif
     <h1>商品検索画面</h1>
 
     <div class="container">

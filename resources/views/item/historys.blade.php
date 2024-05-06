@@ -55,10 +55,6 @@
                 <td>{{ $history->created_at }}</td>
                 <td><a href="{{ route('details', ['id'=>$history->id]) }}" class="btn btn-info">詳細</a></td>
                 <td>
-                <form action="{{ route('destroy', ['id'=>$history->id]) }}" method="POST">
-                @csrf
-                <button type="submit"  class="btn btn-danger" onclick='return confirm("登録されたこの商品を返品しますか？");'>返品</button>
-                </form>
                 </td>
               </tr>
               @endforeach

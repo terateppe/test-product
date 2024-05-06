@@ -17,6 +17,11 @@ class BuyController extends Controller
          $history->item_id = $id; 
         $history->save();
             
+
+        if($request) {
+            session()->flash('message', '購入しました。');
+        } 
+
             // 成功したら検索画面に遷移
             return redirect('/search/index');
         

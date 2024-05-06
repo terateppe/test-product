@@ -33,7 +33,7 @@
                         <div><label>商品名</label></div>
                         <div class="form-group">
                             
-{{ $histories->name }}
+                        {{ $histories->name }}
 
                         </div>
                         <div><label>種別</label></div>
