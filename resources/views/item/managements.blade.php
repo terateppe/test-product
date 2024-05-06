@@ -25,7 +25,7 @@
  <form action="{{ route('managements')}}">
         <button type="submit" name="sort" value="1">昇順で表示</button>
         <button type="submit" name="sort" value="2">降順で表示</button>
-    </form>
+</form>
     {{ $items->links() }}
     <table class="table table">
       <th>ID</th>

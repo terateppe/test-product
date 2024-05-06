@@ -9,19 +9,13 @@
 <body>
 @include('parts.nav')
 
-@if (session('message'))
-            <div class="flash_message bg-success text-center py-3 my-0" style="background-color: rgba(0, 200, 0, 0.5); color: white; padding: 10px; font-size: 20px;">
-                {{ session('message') }}
-            </div>
-        @endif
-
 <div class="form-group text-center">
 <h2>購入履歴</h2>
 </div>
  <!-- 昇順・降順を切り替えるリンク -->
- <form action="{{ route('managements')}}">
-        <button type="submit" name="sort" value="1">昇順で表示</button>
-        <button type="submit" name="sort" value="2">降順で表示</button>
+ <form action="/item/order_history">
+        <button type="submit" name="change" value="1">昇順で表示</button>
+        <button type="submit" name="change" value="2">降順で表示</button>
  </form>
  {{ $histories->links() }}
     <table class="table table-striped ">

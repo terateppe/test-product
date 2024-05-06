@@ -131,13 +131,24 @@ class ItemController extends Controller
     //購入履歴画面の表示
     public function history(Request $request)
     {   
-    // itemsテーブルとの結合処理
-        $histories = History::join('items', 'items.id', '=', 'histories.item_id')
-        ->select('histories.*', 'items.name', 'items.type', 'items.detail',)
-        ->paginate(10); // ページネーションを適用
 
-        return view('item.historys', ['histories' => $histories]);
+            //昇順・降順の切り替え機能
+    $sort = $request->get('change');
+    if ($sort === '1') {
+        $histories = History::join('items', 'items.id', '=', 'histories.item_id')
+            ->select('histories.*', 'items.name', 'items.type', 'items.detail')
+            ->orderBy('histories.created_at', 'asc')
+            ->paginate(10);
+    } else {
+        $histories = History::join('items', 'items.id', '=', 'histories.item_id')
+            ->select('histories.*', 'items.name', 'items.type', 'items.detail')
+            ->orderBy('histories.created_at', 'desc')
+            ->paginate(10);
     }
+
+    return view('item.historys', ['histories' => $histories]);
+    }
+    
 
     //購入商品詳細画面の表示
     public function details(Request $request, $id)
