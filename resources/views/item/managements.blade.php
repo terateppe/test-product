@@ -28,7 +28,6 @@
     </form>
     {{ $items->links() }}
     <table class="table table">
-      <th>
       <th>ID</th>
       <th>商品名</th>
       <th>種別</th>
