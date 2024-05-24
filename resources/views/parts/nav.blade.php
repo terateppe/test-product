@@ -25,7 +25,7 @@
                 @if(auth()->check())
                 <!-- ログイン状態の場合 -->
                 <li class="nav-item">
-                    <form action="/user/edit/{id}" method="post">
+                    <form action="/user/edit/{{ $id }}" method="get">
                         @csrf
                         <input class="btn btn-sm btn-primary" type="submit" value="アカウント編集">
                     </form>
