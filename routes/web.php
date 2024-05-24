@@ -38,6 +38,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/item/order_history', [App\Http\Controllers\ItemController::class, 'history'])->name('historys'); //購入履歴画面を表示
     Route::get('/item/detail/{id}', [App\Http\Controllers\ItemController::class, 'details'])->name('details'); // 購入商品の詳細画面
     Route::post('/item/delete/{id}', [App\Http\Controllers\ItemController::class, 'delete'])->name('delete'); //購入商品削除処理
+
+    //アカウント編集機能
+    Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit']);//ユーザー編集画面表示
+    Route::post('/user/update', [App\Http\Controllers\UserController::class, 'update']);//ユーザー更新処理
+    Route::post('/user/{id}', [App\Http\Controllers\UserController::class, 'delete']); //ユーザー削除処理
 });
 
 // 管理者の場合
@@ -50,9 +55,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('/item/update', [App\Http\Controllers\ItemController::class, 'update'])->name('update'); //登録商品の更新処理
 
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);//ユーザー一覧を表示
-    Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit']);//ユーザー編集画面表示
-    Route::post('/user/update', [App\Http\Controllers\UserController::class, 'update']);//ユーザー更新処理
-    Route::post('/user/{id}', [App\Http\Controllers\UserController::class, 'delete']); //ユーザー削除処理
 });
 
 Route::get('/', function () {
