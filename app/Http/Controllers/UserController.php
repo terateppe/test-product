@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User; //ユーザーモデルを使用
 
 class UserController extends Controller
@@ -23,12 +24,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
+        $user = auth()->user();
         return view('users.edit', compact('user'));
     }
 
     /**
-     * ユーザー編集処理
+     * ユーザー更新処理
      */
     public function update(Request $request)
     {
@@ -36,14 +37,23 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'is_admin' => 'required',
         ]);
 
-        $user = User::find($request->id);
-        $user->update($request->all());
+        $user = User::find($request->input('id'));
 
-        $data = session('previousData');
-        return redirect('/redirected-page')->with('status', '保存しました', 'previousData', $data);
+        // 他の情報も更新
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+         // パスワードをハッシュ化して保存
+        $user->password = Hash::make($request->input('password'));
+
+        $user->save();
+
+        if($request) {
+            session()->flash('message', '更新しました。');
+        } 
+
+        return redirect()->route('index');
     }
 
     

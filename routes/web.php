@@ -22,11 +22,9 @@ Route::post('/logout', [AccountController::class,'doLogout'])->name('logout'); /
 route::get('/account/create', [AccountController::class,'create'])->name('account.create')->middleware('guest'); // ユーザー登録画面を表示
 route::post('/account/store', [AccountController::class,'store'])->name('account.store'); // ユーザー登録処理
 
-Route::get('/home/{id?}', [App\Http\Controllers\HomeController::class, 'index']); //ホーム画面表示
+Route::get('/home/{id?}', [App\Http\Controllers\HomeController::class, 'index'])->name('index'); //ホーム画面表示
 // ログインしている場合
 Route::middleware('auth')->group(function () {
-    //Route::get('/home/{id?}', [App\Http\Controllers\HomeController::class, 'index']);
-
     //商品検索
     Route::get('/search/index', [App\Http\Controllers\SearchController::class, 'index']);
     Route::get('/search/detail/{id}', [App\Http\Controllers\SearchController::class, 'detail']);

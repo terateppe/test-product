@@ -21,7 +21,7 @@
     <form action="/user/update" method="POST">
       @csrf
       <div class="mb-3">
-        <label class="form-label">名前</label>
+        <label class="form-label">名前(出品者の場合は社名をご記入ください)</label>
         <input class="form-control" type="text" name="name" id="name" value="{{$user->name}}" required>
         @error('name')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -38,7 +38,7 @@
 
       <div class="mb-3">
         <label class="form-label">パスワード</label>
-        <input class="form-control" type="password" name="password" id="password"  required>
+        <input class="form-control" type="password" name="password" id="password" placeholder="再設定するパスワードを入力してください" required>
       </div>
 
   <div class="row  text-center">
@@ -46,11 +46,10 @@
     <div class="col-5">
 
       <input type="hidden" name="id" value="{{$user->id}}">
-      <input type="submit" class="btn btn-primary" value="保存">
-
-      </form>
+      <input type="submit" class="btn btn-primary"  onclick="return confirm('以下の内容で更新します。')" value="保存">
+    </form>
+      
   </div>
-
 
     <div class="col-5">
       <form action="/user/{id}" method="post">

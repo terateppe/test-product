@@ -16,6 +16,12 @@
     <h1>防災グッズ販売所</h1>
 </div>
 
+@if (session('message'))
+            <div class="flash_message bg-success text-center py-3 my-0" style="background-color: rgba(0, 200, 0, 0.5); color: white; padding: 10px; font-size: 20px;">
+                {{ session('message') }}
+            </div>
+        @endif
+
 <div class="container text-center">
     <div class="row">
     <div class="col-4">
