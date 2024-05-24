@@ -27,4 +27,33 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
+    /**
+     * ユーザー編集処理
+     */
+    public function update(Request $request)
+    {
+        $ValidatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'is_admin' => 'required',
+        ]);
+
+        $user = User::find($request->id);
+        $user->update($request->all());
+
+        $data = session('previousData');
+        return redirect('/redirected-page')->with('status', '保存しました', 'previousData', $data);
+    }
+
+    
+     /**
+     * ユーザー削除処理
+     */
+    public function delete(Request $request)
+    {
+        $user = User::find($request->id);
+        $user->delete();
+        return redirect('/login')->with('status', '削除しました');
+    }
 }

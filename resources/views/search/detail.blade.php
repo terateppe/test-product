@@ -79,10 +79,10 @@
     <tr>
         <td>出品者名</td>
         <td>@foreach($users as $user)
-    
-            {{ $user->name }}
-      
-            @endforeach</td>
+            @if($user->is_admin)
+                {{ $user->name }}
+            @endif
+        @endforeach</td>
     </tr>
     <tr>
         <td>ID</td>

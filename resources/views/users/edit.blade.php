@@ -13,11 +13,11 @@
 <body>
   @include('parts.nav')
 
-  <!---一覧に戻るボタン-->
-  <a href="/user" button type=button class="btn btn-secondary">一覧に戻る</a>
+  <!---戻るボタン-->
+  <a href="/home" class="btn btn-secondary">ホーム画面に戻る</a>
 
   <div class="form-group text-center">
-    <h2>編集画面</h2>
+    <h2>アカウント編集</h2>
     <form action="/user/update" method="POST">
       @csrf
       <div class="mb-3">
@@ -36,22 +36,10 @@
         @enderror
       </div>
 
-
-      <div class="radio-inline">
-
-        <label class="form0label">権限</label><br>
-
-        <input type="radio" name="is_admin" value="0" @if($user->is_admin==0) checked @endif >利用者
-        <input type="radio" name="is_admin" value="1" @if($user->is_admin==1) checked @endif >管理者
-
-
-        @error('radio')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-
+      <div class="mb-3">
+        <label class="form-label">パスワード</label>
+        <input class="form-control" type="password" name="password" id="password"  required>
       </div>
-  </div>
-
 
   <div class="row  text-center">
 
@@ -61,7 +49,7 @@
       <input type="submit" class="btn btn-primary" value="保存">
 
       </form>
-    </div>
+  </div>
 
 
     <div class="col-5">
