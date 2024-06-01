@@ -23,7 +23,7 @@
 - laravel 10.13.5
 
 ## 設計書
-- [設計書ページへ](https://drive.google.com/drive/folders/1kLjBwKnaRKpf6OFK7oEcQJkmyhAbtGUZ)
+- [設計書ページへ](https://drive.google.com/drive/folders/1GupdEDXFmjs7YdXhm1PW4e6DujMgPymX)
 
 ## システム閲覧
 - [アプリケーションページへ](https://techis-test-product-1e821d3f4ef9.herokuapp.com/login)
