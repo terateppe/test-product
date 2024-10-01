@@ -84,6 +84,7 @@
 
             </td>
             <td>{{$item->created_at}}</td>
+            <td><a href="/search/detail/{{ $item->id }}" class="btn btn-primary">詳細</a></td>
         </tr>
         @endforeach
     </table>
