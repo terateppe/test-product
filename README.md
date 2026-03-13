@@ -26,7 +26,7 @@
 - [設計書ページへ](https://drive.google.com/drive/folders/1GupdEDXFmjs7YdXhm1PW4e6DujMgPymX)
 
 ## システム閲覧
-~~- [アプリケーションページへ](https://techis-test-product-1e821d3f4ef9.herokuapp.com/login)~~
+~~- [アプリケーションページへ]~~
 
 ## テストアカウント情報
 ※現在はデプロイを停止しており、ソースコードのみの公開となりますが、ロジック構成やディレクトリ設計をご参照いただけますと幸いです。
